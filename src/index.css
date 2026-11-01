@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas: #FAF8F5;
+    --surface: #FFFFFF;
+    --hairline: #E2DDD5;
+    --charcoal: #111110;
+    --terracotta: #D9531E;
+    --brass: #C8963E;
+    --whatsapp: #128C7E;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body, #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F6F4F0;
+    color: #181816;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Fullscreen Laptop & Mobile Responsive Container */
+.content-container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .content-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .content-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .content-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1536px) {
+  .content-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Custom Scrollbar for smooth luxury feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F4F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C6;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B08D57;
+}
+
+/* Glassmorphism & hairline borders */
+.hairline-border {
+  border: 1px solid #E2DDD5;
+}
+
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid #E2DDD5;
+  box-shadow: 0 4px 20px -2px rgba(24, 24, 22, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxury-card:hover {
+  border-color: #C8B89E;
+  box-shadow: 0 12px 30px -4px rgba(24, 24, 22, 0.08);
+}
+
+.gradient-rust {
+  background: linear-gradient(135deg, #E64A19 0%, #D9531E 50%, #C85A32 100%);
+}
+
+.gradient-obsidian {
+  background: linear-gradient(135deg, #111110 0%, #1A1A18 50%, #262422 100%);
+}
+
+.glow-rust {
+  box-shadow: 0 12px 30px -6px rgba(217, 83, 30, 0.4);
+}
+
+.glow-gold {
+  box-shadow: 0 12px 30px -6px rgba(200, 150, 62, 0.35);
+}
+
+/* Switch 3D Tactile Styling */
+.switch-rocker {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2), 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+.switch-rocker.is-on {
+  transform: perspective(300px) rotateX(8deg);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.switch-rocker.is-off {
+  transform: perspective(300px) rotateX(-8deg);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Print styles for estimate quotation slip */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-estimate-slip, #printable-estimate-slip * {
+    visibility: visible;
+  }
+  #printable-estimate-slip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+/* Running Marquee Ticker for Live Godown Ads */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 38s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* 3D Perspective Card Tilt */
+.perspective-container {
+  perspective: 1200px;
+}
+.card-3d-tilt {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.card-3d-tilt:hover {
+  transform: perspective(1000px) rotateX(1.5deg) rotateY(-1.5deg) translateY(-4px);
+  box-shadow: 0 25px 45px -10px rgba(24, 24, 22, 0.12);
+}
+
+/* Shimmer Sheen Effect */
+@keyframes shimmerSheen {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.shimmer-active {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-active::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: shimmerSheen 4s infinite;
+  pointer-events: none;
+}
+
